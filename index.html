@@ -4,370 +4,729 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NceshPhytomed - Premium Herbal Medicine</title>
-    <!-- Bootstrap 5 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <!-- Google Fonts: Inter -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
+        /* Global Styles */
+        :root {
+            --primary: #4a8f29;
+            --primary-dark: #3a7320;
+            --secondary: #f8f1e5;
+            --accent: #e67e22;
+            --text: #333;
+            --light: #fff;
+            --gray: #f5f5f5;
+            --dark-gray: #777;
+        }
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-
+        
         body {
-            font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
-            color: #ffffff;
-            overflow-x: hidden;
+            color: var(--text);
+            line-height: 1.6;
+            background-color: var(--secondary);
         }
-
-        /* Animated Background */
-        .bg-animation {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            opacity: 0.1;
+        
+        a {
+            text-decoration: none;
+            color: var(--primary);
         }
-
-        .floating-herb {
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            background: linear-gradient(45deg, #22c55e, #16a34a);
-            border-radius: 50%;
-            animation: float 15s infinite linear;
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
         }
-
-        @keyframes float {
-            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
-            10% { opacity: 1; }
-            90% { opacity: 1; }
-            100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
-        }
-
-        /* Header */
-        header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(10, 10, 10, 0.9);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(34, 197, 94, 0.2);
-            z-index: 1000;
-            transition: background 0.3s ease;
-        }
-
-        .navbar-brand {
-            font-size: 1.8rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, #22c55e, #16a34a);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        .nav-link {
-            color: #ffffff !important;
-            font-weight: 500;
-            position: relative;
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: var(--primary);
+            color: var(--light);
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
             transition: all 0.3s ease;
+            text-align: center;
         }
-
-        .nav-link::after {
+        
+        .btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: var(--light);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2.5rem;
+            color: var(--primary);
+            position: relative;
+        }
+        
+        .section-title::after {
             content: '';
             position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(135deg, #22c55e, #16a34a);
-            transition: width 0.3s ease;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent);
         }
-
-        .nav-link:hover::after {
+        
+        /* Header Styles */
+        header {
+            background-color: var(--light);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
             width: 100%;
+            top: 0;
+            z-index: 1000;
         }
-
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            margin-right: 10px;
+            color: var(--accent);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        
+        nav ul li a:hover {
+            color: var(--accent);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
         /* Hero Section */
         .hero {
-            min-height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1505576399279-565b52d4ac71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: var(--light);
+            margin-top: 70px;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+        
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        /* Featured Products */
+        .featured-products {
+            padding: 80px 0;
+            background-color: var(--light);
+        }
+        
+        .product-slider {
+            display: flex;
+            overflow-x: auto;
+            gap: 30px;
+            padding: 20px 0;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        .product-card {
+            min-width: 280px;
+            background-color: var(--light);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            scroll-snap-align: start;
+            transition: transform 0.3s ease;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .product-img {
+            height: 200px;
+            background-color: var(--gray);
             display: flex;
             align-items: center;
             justify-content: center;
-            text-align: center;
-            padding: 0 1rem;
-            position: relative;
         }
-
-        .hero h1 {
-            font-size: clamp(2.5rem, 6vw, 5rem);
-            font-weight: 900;
-            margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, #ffffff, #22c55e);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            line-height: 1.1;
+        
+        .product-img img {
+            max-height: 80%;
+            max-width: 80%;
+            object-fit: contain;
         }
-
-        .hero p {
+        
+        .product-info {
+            padding: 20px;
+        }
+        
+        .product-title {
             font-size: 1.2rem;
-            margin-bottom: 2rem;
-            color: rgba(255, 255, 255, 0.8);
-            line-height: 1.6;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
+            margin-bottom: 10px;
+            color: var(--primary);
         }
-
-        .btn-cta {
-            background: linear-gradient(135deg, #22c55e, #16a34a);
-            border: none;
-            padding: 1rem 2.5rem;
-            border-radius: 50px;
-            color: white;
-            font-size: 1rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn-cta:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(34, 197, 94, 0.5);
-            color: white;
-        }
-
-        .btn-cta::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: left 0.5s;
-        }
-
-        .btn-cta:hover::before {
-            left: 100%;
-        }
-
-        /* Section Titles */
-        .section-title h2 {
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, #ffffff, #22c55e);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        /* Products Section */
-        .product-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(34, 197, 94, 0.2);
-            border-radius: 15px;
-            padding: 1.5rem;
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-            height: 100%;
-        }
-
-        .product-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(135deg, #22c55e, #16a34a);
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
-        }
-
-        .product-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .product-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 50px rgba(34, 197, 94, 0.2);
-            border-color: rgba(34, 197, 94, 0.5);
-        }
-
+        
         .product-code {
-            color: #22c55e;
-            font-weight: 700;
+            color: var(--dark-gray);
             font-size: 0.9rem;
-            margin-bottom: 0.5rem;
+            margin-bottom: 10px;
         }
-
-        .product-name {
+        
+        .product-price {
             font-size: 1.3rem;
             font-weight: 700;
-            margin-bottom: 0.5rem;
-            color: #ffffff;
+            color: var(--accent);
+            margin-bottom: 15px;
         }
-
-        .product-description {
-            color: rgba(255, 255, 255, 0.7);
-            line-height: 1.5;
-        }
-
+        
         /* About Section */
         .about {
-            background: linear-gradient(135deg, rgba(34, 197, 94, 0.05), rgba(22, 163, 74, 0.05));
-            padding: 5rem 1rem;
+            padding: 80px 0;
+            background-color: var(--gray);
         }
-
+        
         .about-content {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
         }
-
-        /* Contact Section */
-        .contact {
-            background: linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(22, 163, 74, 0.1));
-            padding: 5rem 1rem;
-            border-top: 1px solid rgba(34, 197, 94, 0.2);
+        
+        .about-img {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         }
-
-        .contact-icon {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, #22c55e, #16a34a);
+        
+        .about-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .about-text h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+        }
+        
+        .about-features {
+            margin-top: 30px;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+        
+        .feature-icon {
+            background-color: var(--primary);
+            color: var(--light);
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.2rem;
-            color: white;
-            margin-bottom: 0.5rem;
+            margin-right: 15px;
+            flex-shrink: 0;
         }
-
-        .contact-text {
-            color: #ffffff;
+        
+        /* Products Section */
+        .products {
+            padding: 80px 0;
+            background-color: var(--light);
+        }
+        
+        .product-filters {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .filter-btn {
+            padding: 8px 20px;
+            background-color: var(--gray);
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .filter-btn.active {
+            background-color: var(--primary);
+            color: var(--light);
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        /* Pricing Section */
+        .pricing {
+            padding: 80px 0;
+            background-color: var(--gray);
+        }
+        
+        .pricing-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .pricing-table th, .pricing-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .pricing-table th {
+            background-color: var(--primary);
+            color: var(--light);
             font-weight: 600;
         }
-
+        
+        .pricing-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        .pricing-table tr:hover {
+            background-color: #f1f1f1;
+        }
+        
+        .distributor-price {
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        .retail-price {
+            color: var(--accent);
+            font-weight: 600;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 80px 0;
+            background-color: var(--light);
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+        
+        .contact-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .contact-details {
+            margin-bottom: 30px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary);
+            color: var(--light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+        }
+        
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px 15px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        .contact-form textarea {
+            height: 150px;
+            resize: vertical;
+        }
+        
+        /* FAQ Section */
+        .faq {
+            padding: 80px 0;
+            background-color: var(--gray);
+        }
+        
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+            background-color: var(--light);
+        }
+        
+        .faq-question {
+            padding: 15px 20px;
+            background-color: var(--primary);
+            color: var(--light);
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .faq-answer {
+            padding: 20px;
+            display: none;
+        }
+        
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+        
         /* Footer */
         footer {
-            background: rgba(10, 10, 10, 0.9);
-            padding: 3rem 1rem 1rem;
-            border-top: 1px solid rgba(34, 197, 94, 0.2);
+            background-color: var(--primary);
+            color: var(--light);
+            padding: 50px 0 20px;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-col h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--accent);
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-col ul li a {
+            color: #ddd;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-col ul li a:hover {
+            color: var(--light);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--light);
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--accent);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
             text-align: center;
-        }
-
-        .footer-logo {
-            font-size: 1.8rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, #22c55e, #16a34a);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            margin-bottom: 1rem;
-        }
-
-        .footer-text {
-            color: rgba(255, 255, 255, 0.7);
-            margin-bottom: 1.5rem;
-        }
-
-        .footer-bottom {
-            padding-top: 1.5rem;
-            border-top: 1px solid rgba(34, 197, 94, 0.2);
-            color: rgba(255, 255, 255, 0.5);
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
             font-size: 0.9rem;
+            color: #ddd;
         }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .about-content,
+            .contact-container {
+                grid-template-columns: 1fr;
             }
-            to {
-                opacity: 1;
-                transform: translateY(0);
+            
+            .about-img {
+                order: -1;
             }
         }
-
-        .fade-in-up {
-            animation: fadeInUp 1s ease-out;
-        }
-
-        /* Responsive Adjustments */
+        
         @media (max-width: 768px) {
+            .header-container {
+                padding: 15px 0;
+            }
+            
+            nav {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 80%;
+                height: calc(100vh - 70px);
+                background-color: var(--light);
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                transition: all 0.3s ease;
+                z-index: 999;
+            }
+            
+            nav.active {
+                left: 0;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                padding: 30px;
+            }
+            
+            nav ul li {
+                margin: 15px 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
             .hero h1 {
                 font-size: 2.5rem;
             }
-
-            .section-title h2 {
+            
+            .hero-btns {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .btn {
+                width: 100%;
+            }
+            
+            .section-title {
                 font-size: 2rem;
             }
-
-            .product-name {
-                font-size: 1.2rem;
+        }
+        
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .product-filters {
+                flex-direction: column;
+                align-items: center;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Animated Background -->
-    <div class="bg-animation" id="bgAnimation"></div>
-
     <!-- Header -->
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark py-3">
-            <div class="container">
-                <a class="navbar-brand" href="#home">NceshPhytomed</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#products">Products</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                    </ul>
-                </div>
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <i class="fas fa-leaf"></i>
+                NceshPhytomed
+            </a>
+            
+            <nav id="main-nav">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+            </nav>
+            
+            <div class="mobile-menu-btn" id="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
             </div>
-        </nav>
+        </div>
     </header>
 
     <!-- Hero Section -->
     <section class="hero" id="home">
-        <div class="container">
-            <div class="fade-in-up">
-                <h1>Premium Herbal Medicine</h1>
-                <p>Discover the power of nature with our scientifically formulated phytomedicines. Experience wellness through traditional wisdom and modern innovation.</p>
-                <a href="#products" class="btn btn-cta">Explore Products</a>
+        <div class="container hero-content">
+            <h1>Nature's Healing Power in Every Bottle</h1>
+            <p>Premium herbal remedies for wellness and vitality, crafted with care and tradition.</p>
+            <div class="hero-btns">
+                <a href="#products" class="btn">Browse Products</a>
+                <a href="#contact" class="btn btn-outline">Become a Distributor</a>
             </div>
         </div>
     </section>
 
-    <!-- Products Section -->
-    <section class="products py-5" id="products">
+    <!-- Featured Products -->
+    <section class="featured-products">
         <div class="container">
-            <div class="section-title text-center mb-5 fade-in-up">
-                <h2>Our Premium Collection</h2>
-                <p class="text-muted">Scientifically formulated herbal remedies for optimal health</p>
-            </div>
-            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4" id="productsGrid">
-                <!-- Products will be dynamically loaded here -->
+            <h2 class="section-title">Our Featured Products</h2>
+            
+            <div class="product-slider">
+                <!-- Product 1 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://via.placeholder.com/200x200?text=PHYTOMune" alt="PHYTOMune">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">PHYTOMune</h3>
+                        <p class="product-code">Phy01 | 60 capsules</p>
+                        <p class="product-price">R184</p>
+                        <a href="#" class="btn">Add to Cart</a>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://via.placeholder.com/200x200?text=PHYTOFlex" alt="PHYTOFlex">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">PHYTOFlex</h3>
+                        <p class="product-code">Phy02 | 60 capsules</p>
+                        <p class="product-price">R180</p>
+                        <a href="#" class="btn">Add to Cart</a>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://via.placeholder.com/200x200?text=PHYTOKidz" alt="PHYTOKidz">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">PHYTOKidz</h3>
+                        <p class="product-code">Phy05 | 200ml syrup</p>
+                        <p class="product-price">R211</p>
+                        <a href="#" class="btn">Add to Cart</a>
+                    </div>
+                </div>
+                
+                <!-- Product 4 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://via.placeholder.com/200x200?text=PHYTOFade" alt="PHYTOFade Cream">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">PHYTOFade Cream</h3>
+                        <p class="product-code">Phy15 | 50ml</p>
+                        <p class="product-price">R202</p>
+                        <a href="#" class="btn">Add to Cart</a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -375,35 +734,343 @@
     <!-- About Section -->
     <section class="about" id="about">
         <div class="container">
-            <div class="about-content fade-in-up">
-                <div class="section-title text-center mb-4">
-                    <h2>About NceshPhytomed</h2>
+            <h2 class="section-title">About NceshPhytomed</h2>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Our Story</h2>
+                    <p>Founded with a passion for natural healing, NceshPhytomed brings you the finest herbal remedies rooted in traditional African medicine and backed by modern research.</p>
+                    <p>Our founder, Ncesh, grew up learning about the healing properties of indigenous plants from her grandmother. This knowledge, combined with scientific formulation, creates our unique Phytomed products.</p>
+                    
+                    <div class="about-features">
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <div>
+                                <h4>100% Natural Ingredients</h4>
+                                <p>No artificial additives or preservatives</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-flask"></i>
+                            </div>
+                            <div>
+                                <h4>Scientifically Formulated</h4>
+                                <p>Optimal blends for maximum effectiveness</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-award"></i>
+                            </div>
+                            <div>
+                                <h4>Quality Tested</h4>
+                                <p>Rigorous testing for purity and potency</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <p class="text-muted mb-4">NceshPhytomed is dedicated to harnessing the healing power of nature through premium herbal medicines. With a commitment to quality and innovation, we blend traditional herbal wisdom with cutting-edge scientific research to create effective, natural remedies that promote holistic wellness.</p>
-                <p class="text-muted">Our mission is to empower individuals to achieve optimal health through safe, sustainable, and scientifically validated phytomedicines. Join us on a journey to better health, naturally.</p>
+                
+                <div class="about-img">
+                    <img src="https://images.unsplash.com/photo-1584473457406-6240486418e9?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Herbal medicine preparation">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products" id="products">
+        <div class="container">
+            <h2 class="section-title">Our Products</h2>
+            
+            <div class="product-filters">
+                <button class="filter-btn active" data-filter="all">All Products</button>
+                <button class="filter-btn" data-filter="capsules">Capsules</button>
+                <button class="filter-btn" data-filter="syrups">Syrups</button>
+                <button class="filter-btn" data-filter="creams">Creams</button>
+                <button class="filter-btn" data-filter="teas">Teas</button>
+            </div>
+            
+            <div class="products-grid">
+                <!-- Product 1 -->
+                <div class="product-card" data-category="capsules">
+                    <div class="product-img">
+                        <img src="https://via.placeholder.com/200x200?text=PHYTOMune" alt="PHYTOMune">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">PHYTOMune</h3>
+                        <p class="product-code">Phy01 | 60 capsules</p>
+                        <p class="product-price">R184</p>
+                        <a href="#" class="btn">Add to Cart</a>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="product-card" data-category="capsules">
+                    <div class="product-img">
+                        <img src="https://via.placeholder.com/200x200?text=PHYTOFlex" alt="PHYTOFlex">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">PHYTOFlex</h3>
+                        <p class="product-code">Phy02 | 60 capsules</p>
+                        <p class="product-price">R180</p>
+                        <a href="#" class="btn">Add to Cart</a>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="product-card" data-category="syrups">
+                    <div class="product-img">
+                        <img src="https://via.placeholder.com/200x200?text=PHYTOKidz" alt="PHYTOKidz">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">PHYTOKidz</h3>
+                        <p class="product-code">Phy05 | 200ml syrup</p>
+                        <p class="product-price">R211</p>
+                        <a href="#" class="btn">Add to Cart</a>
+                    </div>
+                </div>
+                
+                <!-- Product 4 -->
+                <div class="product-card" data-category="creams">
+                    <div class="product-img">
+                        <img src="https://via.placeholder.com/200x200?text=PHYTOFade" alt="PHYTOFade Cream">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">PHYTOFade Cream</h3>
+                        <p class="product-code">Phy15 | 50ml</p>
+                        <p class="product-price">R202</p>
+                        <a href="#" class="btn">Add to Cart</a>
+                    </div>
+                </div>
+                
+                <!-- Product 5 -->
+                <div class="product-card" data-category="teas">
+                    <div class="product-img">
+                        <img src="https://via.placeholder.com/200x200?text=PHYTOBlend" alt="PHYTOBlend">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">PHYTOBlend</h3>
+                        <p class="product-code">Phy09 | 30 teabags</p>
+                        <p class="product-price">R124</p>
+                        <a href="#" class="btn">Add to Cart</a>
+                    </div>
+                </div>
+                
+                <!-- Product 6 -->
+                <div class="product-card" data-category="capsules">
+                    <div class="product-img">
+                        <img src="https://via.placeholder.com/200x200?text=PHYTODerm" alt="PHYTODerm">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">PHYTODerm</h3>
+                        <p class="product-code">Phy07 | 75g tube</p>
+                        <p class="product-price">R138</p>
+                        <a href="#" class="btn">Add to Cart</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <h2 class="section-title">Pricing List</h2>
+            
+            <p style="text-align: center; margin-bottom: 30px;">Bulk order discounts available for distributors. Contact us for wholesale pricing.</p>
+            
+            <div style="overflow-x: auto;">
+                <table class="pricing-table">
+                    <thead>
+                        <tr>
+                            <th>Code</th>
+                            <th>Product Name</th>
+                            <th>Description</th>
+                            <th>Distributor Price</th>
+                            <th>Retail Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Phy01</td>
+                            <td>PHYTOMune</td>
+                            <td>60 capsules</td>
+                            <td class="distributor-price">R149</td>
+                            <td class="retail-price">R184</td>
+                        </tr>
+                        <tr>
+                            <td>Phy02</td>
+                            <td>PHYTOFlex</td>
+                            <td>60 capsules</td>
+                            <td class="distributor-price">R145</td>
+                            <td class="retail-price">R180</td>
+                        </tr>
+                        <tr>
+                            <td>Phy03</td>
+                            <td>PHYTOSim</td>
+                            <td>90 capsules</td>
+                            <td class="distributor-price">R326</td>
+                            <td class="retail-price">R405</td>
+                        </tr>
+                        <tr>
+                            <td>Phy05</td>
+                            <td>PHYTOKidz</td>
+                            <td>200ml syrup</td>
+                            <td class="distributor-price">R170</td>
+                            <td class="retail-price">R211</td>
+                        </tr>
+                        <tr>
+                            <td>Phy06</td>
+                            <td>PHYTOBalm</td>
+                            <td>125g jar</td>
+                            <td class="distributor-price">R107</td>
+                            <td class="retail-price">R133</td>
+                        </tr>
+                        <tr>
+                            <td>Phy15</td>
+                            <td>PHYTOFade Cream</td>
+                            <td>50ml</td>
+                            <td class="distributor-price">R171</td>
+                            <td class="retail-price">R202</td>
+                        </tr>
+                        <tr>
+                            <td>Phy16</td>
+                            <td>PHYTOFade Lotion</td>
+                            <td>150ml</td>
+                            <td class="distributor-price">R308</td>
+                            <td class="retail-price">R359</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section class="contact py-5" id="contact">
+    <section class="contact" id="contact">
         <div class="container">
-            <div class="section-title text-center mb-5 fade-in-up">
-                <h2>Get In Touch</h2>
-                <p class="text-muted">Contact us for personalized recommendations or to learn more about our premium herbal medicines.</p>
+            <h2 class="section-title">Contact Us</h2>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Get in Touch</h3>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div>
+                                <h4>Phone</h4>
+                                <p>041 487 0709</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4>Email</h4>
+                                <p>info@nceshphytomed.co.za</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h4>Location</h4>
+                                <p>Port Elizabeth, South Africa</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h3>Business Hours</h3>
+                    <p>Monday - Friday: 8:00 AM - 5:00 PM</p>
+                    <p>Saturday: 9:00 AM - 1:00 PM</p>
+                    <p>Sunday: Closed</p>
+                    
+                    <div class="social-links" style="margin-top: 30px;">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <input type="text" placeholder="Your Name" required>
+                        <input type="email" placeholder="Your Email" required>
+                        <input type="text" placeholder="Subject">
+                        <textarea placeholder="Your Message" required></textarea>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
             </div>
-            <div class="row justify-content-center g-4">
-                <div class="col-md-4 col-6 text-center">
-                    <div class="contact-icon">📞</div>
-                    <div class="contact-text">041 123 4567</div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How long does delivery take?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Delivery typically takes 3-5 business days nationwide. We use reliable courier services to ensure your order arrives safely and on time.</p>
+                    </div>
                 </div>
-                <div class="col-md-4 col-6 text-center">
-                    <div class="contact-icon">🌐</div>
-                    <div class="contact-text">info@phytomed.co.za</div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Can I become a distributor?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes! We welcome new distributors. Contact us for wholesale pricing and distributor program details. Our team will guide you through the process.</p>
+                    </div>
                 </div>
-                <div class="col-md-4 col-6 text-center">
-                    <div class="contact-icon">💬</div>
-                    <div class="contact-text">Expert Consultations</div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Are your products safe?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>All our products are made from 100% natural ingredients and undergo rigorous testing for purity and potency. However, we recommend consulting with a healthcare professional before use, especially if you have existing medical conditions.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What payment methods do you accept?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We accept credit/debit cards, EFT payments, and cash on delivery (limited areas). All online payments are processed securely through our payment gateway.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Do you offer international shipping?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Currently, we only ship within South Africa. We're working to expand our shipping options in the future.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -412,96 +1079,135 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <div class="footer">
-                <div class="footer-logo">NceshPhytomed</div>
-                <p class="footer-text">Your trusted partner in natural wellness. Premium herbal medicines for a healthier tomorrow.</p>
-                <div class="footer-bottom">
-                    <p>&copy; 2025 NceshPhytomed. All rights reserved.</p>
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>NceshPhytomed</h3>
+                    <p>Providing premium herbal remedies rooted in tradition and backed by science for your wellness and vitality.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
                 </div>
+                
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#products">Products</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Products</h3>
+                    <ul>
+                        <li><a href="#">PHYTOMune</a></li>
+                        <li><a href="#">PHYTOFlex</a></li>
+                        <li><a href="#">PHYTOKidz</a></li>
+                        <li><a href="#">PHYTOFade</a></li>
+                        <li><a href="#">View All</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Contact Info</h3>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> 041 487 0709</li>
+                        <li><i class="fas fa-envelope"></i> info@nceshphytomed.co.za</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Port Elizabeth, SA</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 NceshPhytomed. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
 
-    <!-- Bootstrap JS and Popper.js -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-Yvp7b1BhfB+JE5S/3r0Q1i+0+0j1z3z5K4k5z6A7b8c9d0e1f2g3h4i5j6k7l8m9" crossorigin="anonymous"></script>
     <script>
-        // Product data (without pricing)
-        const products = [
-            {code: 'Phy01', name: 'PHYTOMune', description: '60 capsules - Immune system support'},
-            {code: 'Phy02', name: 'PHYTOFlex', description: '60 capsules - Joint health and flexibility'},
-            {code: 'Phy03', name: 'PHYTOSim', description: '90 capsules - Digestive wellness'},
-            {code: 'Phy04', name: 'PHYTO-Stress', description: '60 capsules - Natural stress relief'},
-            {code: 'Phy05', name: 'PHYTOKidz', description: '200ml syrup - Children\'s health formula'},
-            {code: 'Phy06', name: 'PHYTOBalm', description: '125g jar - Topical healing balm'},
-            {code: 'Phy07', name: 'PHYTODerm', description: '75g tube - Skin care solution'},
-            {code: 'Phy08', name: 'PHYTOCydin', description: '60 capsules - Cellular health support'},
-            {code: 'Phy09', name: 'PHYTOBlend', description: '30 teabags - Herbal tea blend'},
-            {code: 'Phy10', name: 'PHYTOC-Plus', description: '30 capsules - Vitamin C enhancement'},
-            {code: 'Phy11', name: 'PHYTOAgra', description: '10 capsules - Male vitality support'},
-            {code: 'Phy12', name: 'PHYTOCal', description: '60 capsules - Calcium supplement'},
-            {code: 'Phy13', name: 'PHYTODiabetes', description: '60 capsules - Blood sugar support'},
-            {code: 'Phy14', name: 'PHYTOIron', description: '60 capsules - Iron deficiency support'},
-            {code: 'Phy15', name: 'PHYTOFade Cream', description: '50ml - Skin brightening cream'},
-            {code: 'Phy16', name: 'PHYTOFade Lotion', description: '150ml - Skin brightening lotion'}
-        ];
-
-        // Initialize
-        window.onload = function() {
-            createFloatingHerbs();
-            loadProducts();
-        };
-
-        // Create floating herbs animation
-        function createFloatingHerbs() {
-            const container = document.getElementById('bgAnimation');
-            for (let i = 0; i < 15; i++) {
-                const herb = document.createElement('div');
-                herb.className = 'floating-herb';
-                herb.style.left = Math.random() * 100 + '%';
-                herb.style.animationDelay = Math.random() * 15 + 's';
-                herb.style.animationDuration = (Math.random() * 10 + 10) + 's';
-                container.appendChild(herb);
-            }
-        }
-
-        // Load products
-        function loadProducts() {
-            const grid = document.getElementById('productsGrid');
-            products.forEach(product => {
-                const card = document.createElement('div');
-                card.className = 'col';
-                card.innerHTML = `
-                    <div class="product-card h-100">
-                        <div class="product-code">${product.code}</div>
-                        <h3 class="product-name">${product.name}</h3>
-                        <p class="product-description">${product.description}</p>
-                    </div>
-                `;
-                grid.appendChild(card);
-            });
-        }
-
-        // Smooth scroll for navigation
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mainNav = document.getElementById('main-nav');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mainNav.classList.toggle('active');
+            mobileMenuBtn.innerHTML = mainNav.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Smooth Scrolling for Anchor Links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
+                
+                if (this.getAttribute('href') === '#') return;
+                
                 const target = document.querySelector(this.getAttribute('href'));
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (mainNav.classList.contains('active')) {
+                        mainNav.classList.remove('active');
+                        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                    }
+                }
+            });
+        });
+        
+        // Product Filtering
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const productCards = document.querySelectorAll('.product-card');
+        
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterBtns.forEach(b => b.classList.remove('active'));
+                // Add active class to clicked button
+                btn.classList.add('active');
+                
+                const filter = btn.getAttribute('data-filter');
+                
+                productCards.forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
                 });
             });
         });
-
-        // Header scroll effect
-        window.addEventListener('scroll', function() {
-            const header = document.querySelector('header');
-            if (window.scrollY > 100) {
-                header.style.background = 'rgba(10, 10, 10, 0.95)';
-            } else {
-                header.style.background = 'rgba(10, 10, 10, 0.9)';
-            }
+        
+        // FAQ Accordion
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', () => {
+                const faqItem = question.parentElement;
+                faqItem.classList.toggle('active');
+                
+                const icon = question.querySelector('i');
+                icon.className = faqItem.classList.contains('active') ? 
+                    'fas fa-chevron-up' : 'fas fa-chevron-down';
+            });
         });
+        
+        // Form Submission
+        const contactForm = document.getElementById('contactForm');
+        if (contactForm) {
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                alert('Thank you for your message! We will get back to you soon.');
+                contactForm.reset();
+            });
+        }
     </script>
 </body>
 </html>
