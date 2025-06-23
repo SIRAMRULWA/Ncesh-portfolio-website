@@ -148,12 +148,12 @@
         
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1505576399279-565b52d4ac71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1599508704512-2f19efd692f9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
             height: 100vh;
             display: flex;
             align-items: center;
             text-align: center;
-            color: var(--light);
+            color: #fff;
             margin-top: 70px;
         }
         
@@ -193,13 +193,12 @@
             scroll-snap-type: x mandatory;
             -webkit-overflow-scrolling: touch;
         }
-        
         .product-card {
             min-width: 280px;
             background-color: var(--light);
             border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             scroll-snap-align: start;
             transition: transform 0.3s ease;
         }
@@ -248,7 +247,7 @@
         .order-btn {
             display: block;
             text-align: center;
-            background-color: #25D366; /* WhatsApp green */
+            background-color: #25D366;
             color: white;
             padding: 10px;
             border-radius: 5px;
@@ -276,7 +275,7 @@
         .about-img {
             border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
         
         .about-img img {
@@ -362,7 +361,7 @@
             width: 100%;
             border-collapse: collapse;
             margin-top: 30px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
         
         .pricing-table th, .pricing-table td {
@@ -548,7 +547,7 @@
             justify-content: center;
             width: 40px;
             height: 40px;
-            background-color: rgba(255, 255, 255, 0.1);
+            background-color: rgba(255,255,255,0.1);
             border-radius: 50%;
             color: var(--light);
             transition: all 0.3s ease;
@@ -562,7 +561,7 @@
         .copyright {
             text-align: center;
             padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 1px solid rgba(255,255,255,0.1);
             font-size: 0.9rem;
             color: #ddd;
         }
@@ -591,7 +590,7 @@
                 width: 80%;
                 height: calc(100vh - 70px);
                 background-color: var(--light);
-                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
                 transition: all 0.3s ease;
                 z-index: 999;
             }
@@ -672,7 +671,6 @@
             </div>
         </div>
     </header>
-
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="container hero-content">
@@ -684,7 +682,6 @@
             </div>
         </div>
     </section>
-
     <!-- Featured Products -->
     <section class="featured-products">
         <div class="container">
@@ -753,7 +750,6 @@
             </div>
         </div>
     </section>
-
     <!-- About Section -->
     <section class="about" id="about">
         <div class="container">
@@ -804,7 +800,6 @@
             </div>
         </div>
     </section>
-
     <!-- Products Section -->
     <section class="products" id="products">
         <div class="container">
@@ -911,7 +906,6 @@
             </div>
         </div>
     </section>
-
     <!-- Pricing Section -->
     <section class="pricing" id="pricing">
         <div class="container">
@@ -994,7 +988,6 @@
             </div>
         </div>
     </section>
-
     <!-- Contact Section -->
     <section class="contact" id="contact">
         <div class="container">
@@ -1060,7 +1053,6 @@
             </div>
         </div>
     </section>
-
     <!-- FAQ Section -->
     <section class="faq" id="faq">
         <div class="container">
@@ -1118,6 +1110,7 @@
                 </div>
             </div>
         </div>
+    </section>
     <!-- Footer Section -->
     <footer>
         <div class="container">
@@ -1170,7 +1163,6 @@
             </div>
         </div>
     </footer>
-
     <script>
         // Mobile Menu Toggle
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
